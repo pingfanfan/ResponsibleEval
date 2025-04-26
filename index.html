@@ -2,291 +2,85 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>AGI核心能力框架</title>
+    <title>AGI 能力评估导航页</title>
     <style>
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
             --accent-color: #e74c3c;
+            --background-color: #f9f9f9;
+            --card-color: white;
         }
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
             margin: 2rem;
-            background: #f9f9f9;
+            background: var(--background-color);
+            color: var(--primary-color);
         }
 
-        .framework {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
-            background: white;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .version-card {
+            background: var(--card-color);
             border-radius: 10px;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
-
-        li {
-            position: relative;
-            margin: 5px 0;
-        }
-
-        .toggleable {
-            cursor: pointer;
-            padding-left: 20px;
-        }
-
-        .toggleable::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
+            padding: 2rem;
+            margin: 2rem;
+            display: inline-block;
+            width: 300px;
+            vertical-align: top;
             transition: transform 0.2s;
         }
 
-        .toggleable.active::before {
-            transform: rotate(90deg);
+        .version-card:hover {
+            transform: translateY(-5px);
         }
 
-        .description {
-            color: #7f8c8d;
-            font-size: 0.9em;
-            margin-left: 20px;
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
         }
 
-        .level-1 { color: var(--primary-color); font-size: 1.2rem; }
-        .level-2 { color: #2980b9; }
-        .level-3 { color: #27ae60; }
-        .level-4 { color: #f39c12; }
+        a {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        a:hover {
+            background-color: #c0392b;
+        }
     </style>
 </head>
 <body>
-    <div class="framework">
-        <h1>AGI核心能力框架</h1>
-        <ul>
-            <!-- 基础认知能力 -->
-            <li>
-                <div class="toggleable level-1">1. 基础认知能力</div>
-                <ul style="display: none;">
-                    <li>
-                        <div class="level-2">1.1 演绎推理</div>
-                        <div class="description">从一般原则到特定结论的推理能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">1.2 归纳推理</div>
-                        <div class="description">从具体实例到一般性规律的推理能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">1.3 类比推理</div>
-                        <div class="description">在不同领域间建立映射关系的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">1.4 反事实推理</div>
-                        <div class="description">分析假设情境和可能性的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">1.5 抽象思维与概念形成</div>
-                        <div class="description">识别模式并形成高层次概念的能力</div>
-                    </li>
-                </ul>
-            </li>
-            <!-- 知识与学习 -->
-            <li>
-                <div class="toggleable level-1">2. 知识与学习</div>
-                <ul style="display: none;">
-                    <li>
-                        <div class="level-2">2.1 知识获取与表示</div>
-                        <div class="description">高效吸收和组织信息的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">2.2 快速学习与少样本学习</div>
-                        <div class="description">从有限样例中快速学习的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">2.3 迁移学习与知识泛化</div>
-                        <div class="description">将已有知识应用于新领域的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">2.4 长期记忆与检索</div>
-                        <div class="description">存储并高效检索信息的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">2.5 元学习</div>
-                        <div class="description">学习如何更有效地学习的能力</div>
-                    </li>
-                </ul>
-            </li>
-            <!-- 感知与理解 -->
-            <li>
-                <div class="toggleable level-1">3. 感知与理解</div>
-                <ul style="display: none;">
-                    <li>
-                        <div class="level-2">3.1 多模态信息整合</div>
-                        <div class="description">整合不同类型输入(文本、视觉等)的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">3.2 语言理解与生成</div>
-                        <ul>
-                            <li>
-                                <div class="level-3">3.2.1 语法与语义处理</div>
-                            </li>
-                            <li>
-                                <div class="level-3">3.2.2 语用理解</div>
-                            </li>
-                            <li>
-                                <div class="level-3">3.2.3 文本生成连贯性</div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="level-2">3.3 视觉理解与空间推理</div>
-                        <div class="description">解读视觉信息并进行空间推理的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">3.4 情境感知与上下文理解</div>
-                        <div class="description">根据背景解释信息的能力</div>
-                    </li>
-                </ul>
-            </li>
-            <!-- 目标导向行为 -->
-            <li>
-                <div class="toggleable level-1">4. 目标导向行为</div>
-                <ul style="display: none;">
-                    <li>
-                        <div class="level-2">4.1 目标设定与规划</div>
-                        <ul>
-                            <li>
-                                <div class="level-3">4.1.1 长期规划能力</div>
-                            </li>
-                            <li>
-                                <div class="level-3">4.1.2 分层目标分解</div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="level-2">4.2 决策制定与优化</div>
-                        <ul>
-                            <li>
-                                <div class="level-3">4.2.1 权衡利弊的决策</div>
-                            </li>
-                            <li>
-                                <div class="level-3">4.2.2 优化决策过程</div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="level-2">4.3 问题分解与解决</div>
-                        <div class="description">将复杂问题分解为可管理部分的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">4.4 资源分配与约束处理</div>
-                        <div class="description">在有限资源下优化解决方案的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">4.5 执行监控与调整</div>
-                        <div class="description">监控进度并根据反馈调整策略的能力</div>
-                    </li>
-                </ul>
-            </li>
-            <!-- 社会与伦理智能 -->
-            <li>
-                <div class="toggleable level-1">5. 社会与伦理智能</div>
-                <ul style="display: none;">
-                    <li>
-                        <div class="level-2">5.1 心智理论</div>
-                        <div class="description">理解他人意图、信念和想法的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">5.2 伦理推理与道德判断</div>
-                        <ul>
-                            <li>
-                                <div class="level-3">5.2.1 价值观理解</div>
-                            </li>
-                            <li>
-                                <div class="level-3">5.2.2 伦理困境处理</div>
-                            </li>
-                            <li>
-                                <div class="level-3">5.2.3 道德一致性</div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="level-2">5.3 社会规范理解与遵循</div>
-                        <div class="description">理解并适应社会文化背景的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">5.4 合作与协调能力</div>
-                        <div class="description">与其他智能体有效协作的能力</div>
-                    </li>
-                </ul>
-            </li>
-            <!-- 创造性与适应性 -->
-            <li>
-                <div class="toggleable level-1">6. 创造性与适应性</div>
-                <ul style="display: none;">
-                    <li>
-                        <div class="level-2">6.1 创新思维与生成能力</div>
-                        <ul>
-                            <li>
-                                <div class="level-3">6.1.1 原创内容生成</div>
-                            </li>
-                            <li>
-                                <div class="level-3">6.1.2 创新问题解决</div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="level-2">6.2 不确定性处理</div>
-                        <div class="description">在信息不完全环境中的决策能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">6.3 探索与利用平衡</div>
-                        <div class="description">在探索新可能性和利用已知信息间平衡的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">6.4 环境适应与学习</div>
-                        <div class="description">适应变化环境并从中学习的能力</div>
-                    </li>
-                </ul>
-            </li>
-            <!-- 元认知能力 -->
-            <li>
-                <div class="toggleable level-1">7. 元认知能力</div>
-                <ul style="display: none;">
-                    <li>
-                        <div class="level-2">7.1 自我监控与评估</div>
-                        <div class="description">评估自身性能和能力边界的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">7.2 认知边界意识</div>
-                        <div class="description">认识到自己知识和能力限制的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">7.3 思维模式切换</div>
-                        <div class="description">在不同思考范式间灵活转换的能力</div>
-                    </li>
-                    <li>
-                        <div class="level-2">7.4 反思与自我改进</div>
-                        <div class="description">从经验中学习并改进自身的能力</div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+    <div class="container">
+        <h1>AGI 能力评估版本导航</h1>
+        <div class="version-card">
+            <h2>第一版</h2>
+            <p>以树形结构展示 AGI 核心能力框架，可点击展开/收起子项，方便查看详细内容。</p>
+            <a href="agi_capabilities_v1.html">查看第一版</a>
+        </div>
+        <div class="version-card">
+            <h2>第二版</h2>
+            <p>帮助快速定位每项能力的核心来源，提供“儿童级 → 专家级 → 超人级”三档示例任务，可据此扩展题库。</p>
+            <a href="agi_capabilities_v2.html">查看第二版</a>
+        </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.toggleable').click(function() {
-                $(this).toggleClass('active')
-                    .next('ul').slideToggle(200);
-            });
-        });
-    </script>
 </body>
 </html>
