@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>AGI 能力评估第二版</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --background-color: #f9f9f9;
+            --card-color: white;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 2rem;
+            background: var(--background-color);
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: var(--card-color);
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .usage-tip {
+            background-color: #f1f8e9;
+            border-left: 4px solid #8bc34a;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AGI 能力评估第二版</h1>
+        <p>以下内容帮助你<strong>快速定位</strong>每项能力的核心来源，并提供 “儿童级 → 专家级 → 超人级” 三档示例任务，可直接据此扩展题库。——若需更深入，请回看完整大纲。</p>
+
+        <!-- 认知推理与问题解决 -->
+        <div class="section">
+            <h2>1. 认知推理与问题解决</h2>
+            <h3>典型文献</h3>
+            <ul>
+                <li><a href="https://paperswithcode.com/dataset/big-bench?utm_source=chatgpt.com">BIG-bench & BBH/BBEH 系列</a>：覆盖200+推理子任务。</li>
+                <li><a href="https://arxiv.org/html/2409.01374v1?utm_source=chatgpt.com">ARC & ARC-AGI（抽象与推理语料库）</a>：强调跨领域逻辑归纳。</li>
+            </ul>
+            <h3>三档示例</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>难度</th>
+                        <th>案例描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>儿童级</td>
+                        <td>在一段小故事中找出因果顺序，并完成两位数加减。</td>
+                    </tr>
+                    <tr>
+                        <td>专家级</td>
+                        <td>给定复杂几何命题，撰写严谨证明；同时在 5 步内规划解题策略（需显式 Chain-of-Thought）。</td>
+                    </tr>
+                    <tr>
+                        <td>超人级</td>
+                        <td>解决 ARC 风格开放题：系统地归纳隐含规则并生成程序，使 3 个未见测试图全部匹配。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 创造力与想象 -->
+        <div class="section">
+            <h2>2. 创造力与想象</h2>
+            <h3>典型文献</h3>
+            <ul>
+                <li><a href="https://arxiv.org/abs/2405.13012?utm_source=chatgpt.com">Divergent Creativity in Humans and LLMs</a>：将 AUT 等发散测试迁移到模型测评。</li>
+                <li><a href="https://arxiv.org/abs/2412.17596?utm_source=chatgpt.com">LiveIdeaBench</a>：用单关键词评测科学创意。</li>
+            </ul>
+            <h3>三档示例</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>难度</th>
+                        <th>案例描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>儿童级</td>
+                        <td>列举铅笔的 10 种新用途（30 秒内）。</td>
+                    </tr>
+                    <tr>
+                        <td>专家级</td>
+                        <td>从『海上城市』这一概念出发，设计可行的能源-交通-生态整体方案（需多视角论证）。</td>
+                    </tr>
+                    <tr>
+                        <td>超人级</td>
+                        <td>针对尚无答案的前沿科学难题（如室温超导机理）提出原创假设与实验路径，并阐明潜在风险。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 社会情感理解与人际认知 -->
+        <div class="section">
+            <h2>3. 社会情感理解与人际认知</h2>
+            <h3>典型文献</h3>
+            <ul>
+                <li><a href="https://arxiv.org/abs/2302.02083?utm_source=chatgpt.com">Kosinski 2023 ToM 测试</a>：LLMs 在假信念任务上的表现。</li>
+                <li><a href="https://arxiv.org/abs/2304.03279?utm_source=chatgpt.com">MACHIAVELLI</a>：评估道德-收益权衡下的行为。</li>
+            </ul>
+            <h3>三档示例</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>难度</th>
+                        <th>案例描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>儿童级</td>
+                        <td>识别对话中说话者的情绪并给出一句安慰。</td>
+                    </tr>
+                    <tr>
+                        <td>专家级</td>
+                        <td>阅读一段职场冲突场景，判断各方隐含意图并提出双赢调解方案。</td>
+                    </tr>
+                    <tr>
+                        <td>超人级</td>
+                        <td>在电车难题类多方伦理冲突中，输出决策 + 道德依据 + 价值论证，且一致性通过多轮质询。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 跨模态理解与生成 -->
+        <div class="section">
+            <h2>4. 跨模态理解与生成</h2>
+            <h3>典型文献</h3>
+            <ul>
+                <li><a href="https://arxiv.org/abs/2307.06281?utm_source=chatgpt.com">MMBench</a>：系统评估视觉-语言理解。</li>
+                <li><a href="https://arxiv.org/abs/2404.16006?utm_source=chatgpt.com">MMT-Bench</a>：面向多任务 AGI 的综合多模态基准。</li>
+            </ul>
+            <h3>三档示例</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>难度</th>
+                        <th>案例描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>儿童级</td>
+                        <td>看图说话：描述一张家庭野餐照片中的人物动作。</td>
+                    </tr>
+                    <tr>
+                        <td>专家级</td>
+                        <td>给定科研论文图 + 摘要，回答跨模态深度理解问答（如实验变量关系）。</td>
+                    </tr>
+                    <tr>
+                        <td>超人级</td>
+                        <td>输入城市卫星图、交通流数据，生成优化改造提案并输出相应示意图。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 主动学习与适应 -->
+        <div class="section">
+            <h2>5. 主动学习与适应</h2>
+            <h3>典型文献</h3>
+            <ul>
+                <li><a href="https://arxiv.org/html/2402.01364v1?utm_source=chatgpt.com">Continual Learning of LLMs Survey（2024）</a></li>
+                <li><a href="https://arxiv.org/abs/2204.14211?utm_source=chatgpt.com">TemporalWiki</a>：检验模型对知识变更的持续适应。</li>
+            </ul>
+            <h3>三档示例</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>难度</th>
+                        <th>案例描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>儿童级</td>
+                        <td>零样本理解：给 1-2 示例解释新造词含义，然后在新句子中正确使用。</td>
+                    </tr>
+                    <tr>
+                        <td>专家级</td>
+                        <td>顺序学习 5 个小领域百科片段，测试对第 1 段事实的保留及第 5 段知识的即时应用。</td>
+                    </tr>
+                    <tr>
+                        <td>超人级</td>
+                        <td>实时抓取当日财经新闻流，30 分钟内构建投资摘要并在数小时后更新预测，检验遗忘率 < 5%。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 自我反思与元认知 -->
+        <div class="section">
+            <h2>6. 自我反思与元认知</h2>
+            <h3>典型文献</h3>
+            <ul>
+                <li><a href="https://arxiv.org/abs/2303.11366?utm_source=chatgpt.com">Reflexion</a>：语言代理自评-纠错框架。</li>
+                <li><a href="https://arxiv.org/html/2406.10400v2?utm_source=chatgpt.com">Self-Reflection Makes LLMs Safer (2024)</a></li>
+            </ul>
+            <h3>三档示例</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>难度</th>
+                        <th>案例描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>儿童级</td>
+                        <td>回答三道常识问答，并为每题打出 0-1 置信度分数；答错需标为『不确定』。</td>
+                    </tr>
+                    <tr>
+                        <td>专家级</td>
+                        <td>在 10 步数学推导后自检推理链，发现并修正任意计算或逻辑错误。</td>
+                    </tr>
+                    <tr>
+                        <td>超人级</td>
+                        <td>多回合写代码解题；系统注入隐藏 bug 后，模型须通过日志反思定位并修复，无人类提示。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 工具使用与环境交互 -->
+        <div class="section">
+            <h2>7. 工具使用与环境交互</h2>
+            <h3>典型文献</h3>
+            <ul>
+                <li><a href="https://arxiv.org/abs/2302.04761?utm_source=chatgpt.com">Toolformer</a>：模型自学 API 调用。</li>
+                <li><a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com">ReAct</a>：推理-行动交织以检索/执行外部信息。</li>
+            </ul>
+            <h3>三档示例</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>难度</th>
+                        <th>案例描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>儿童级</td>
+                        <td>调用计算器 API 解决带括号的四则混合运算并返回步骤。</td>
+                    </tr>
+                    <tr>
+                        <td>专家级</td>
+                        <td>在文档检索 API + Python 执行环境下完成『数据抓取-清洗-可视化』一条龙任务。</td>
+                    </tr>
+                    <tr>
+                        <td>超人级</td>
+                        <td>通过 ReAct-style 代理在虚拟家居环境完成『煮咖啡→拿书→回答问题』连环任务，需自主规划、容错与回溯。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="usage-tip">
+            <strong>使用建议</strong>：每个示例都可参数化生成无穷变体——在出题脚本中随机替换实体、数字、图像或场景，保持新颖性同时牢牢对应大纲指标。这样就能最大限度抵抗“背题”训练，并持续追踪模型向 AGI 的逼近速度。
+        </div>
+    </div>
+</body>
+</html>
